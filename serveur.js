@@ -2,7 +2,7 @@ var express = require('express');
 
 var app = express();
 
-var port = process.env.PORT || 3000
+var port = process.env.PORT || 3000;
 
 app.get("/hello", (req, res) => {
   console.log("Responding to root...");

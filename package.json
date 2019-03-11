@@ -1,0 +1,24 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "étape 1",
+  "main": "serveur.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "heroku": "^7.22.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sivithu/nodejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sivithu/nodejs/issues"
+  },
+  "homepage": "https://github.com/sivithu/nodejs#readme"
+}

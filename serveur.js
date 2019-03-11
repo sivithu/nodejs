@@ -9,12 +9,14 @@ app.get("/hello", (req, res) => {
   res.send("Hello World");
 })
 
-app.post("chat", (req,res) => {
+app.post("/chat", (req,res) => {
   var msg = req.msg;
   if(msg == "ville") {
     res.send("Nous sommes à Paris")
+    console.log("Nous sommes à Paris")
   } else if(msg == "météo"){
     res.send("Il fait beau")
+    console.log("Il fait beau")
   }
 })
 

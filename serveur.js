@@ -1,8 +1,11 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 
 var app = express();
 
 var port = process.env.PORT || 3000;
+
+app.use(bodyParser.json())
 
 app.get("/hello", (req, res) => {
   console.log("Responding to root...");
@@ -10,7 +13,7 @@ app.get("/hello", (req, res) => {
 })
 
 app.post("/chat", (req,res) => {
-  var msg = req.msg;
+  var msg = req.body.msg;
   if(msg == "ville") {
     res.send("Nous sommes à Paris")
     console.log("Nous sommes à Paris")
@@ -18,6 +21,7 @@ app.post("/chat", (req,res) => {
     res.send("Il fait beau")
     console.log("Il fait beau")
   }
+  console.log(msg);
 })
 
 app.listen(port, () => {

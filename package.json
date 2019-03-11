@@ -4,6 +4,7 @@
   "description": "étape 1",
   "main": "serveur.js",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "heroku": "^7.22.4"
   },

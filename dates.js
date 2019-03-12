@@ -84,6 +84,7 @@ app.get('/messages/all', async (req, res) => {
     const db = client.db(dbName);
     const col = db.collection('messages');
     console.log(await col.find().toArray());
+    res.send("Voici le tableau");
     client.close();
 
   } catch (err) {
@@ -97,6 +98,7 @@ app.delete('/messages/last', async (req, res) => {
 
     // Connection URL
     const url = 'mongodb://localhost:27017/chat-bot';
+
     // Database Name
     const dbName = 'chat-bot';
     const client = new MongoClient(url);
@@ -108,6 +110,7 @@ app.delete('/messages/last', async (req, res) => {
     var idDelete = arr[arr.length-1]._id;
     col.deleteOne({_id: idDelete});
     console.log(await col.find().toArray());
+    res.send("Suppresion effectué");
     client.close();
 
   } catch (err) {

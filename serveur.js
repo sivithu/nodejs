@@ -52,7 +52,7 @@ app.post("/chat", (req,res) => {
 app.post('/chat', async (req, res) => {
   try {
     // Connection URL
-    const url = 'mongodb://localhost:27017/chat-bot';
+    const url = process.env.MONGODB_URI;
     // Database Name
     const dbName = 'chat-bot';
     const client = new MongoClient(url);
@@ -83,7 +83,7 @@ app.post('/chat', async (req, res) => {
 app.get('/messages/all', async (req, res) => {
   try {
     // Connection URL
-    const url = 'mongodb://localhost:27017/chat-bot';
+    const url = process.env.MONGODB_URI;
     // Database Name
     const dbName = 'chat-bot';
     const client = new MongoClient(url);
@@ -103,10 +103,8 @@ app.get('/messages/all', async (req, res) => {
 
 app.delete('/messages/last', async (req, res) => {
   try {
-
     // Connection URL
-    const url = 'mongodb://localhost:27017/chat-bot';
-
+    const url = process.env.MONGODB_URI;
     // Database Name
     const dbName = 'chat-bot';
     const client = new MongoClient(url);
@@ -120,7 +118,6 @@ app.delete('/messages/last', async (req, res) => {
     console.log(await col.find().toArray());
     res.send("Suppresion effectué");
     client.close();
-
   } catch (err) {
     //this will eventually be handled by your error handling middleware
     console.log(err.stack);

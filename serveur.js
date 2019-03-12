@@ -9,6 +9,12 @@ app.use(bodyParser.json());
 
 var port = process.env.PORT || 3000;
 
+
+app.get("/", (req, res) => {
+  console.log("Responding to root...");
+  res.send("Bienvenue développeur");
+})
+
 app.get("/hello", (req, res) => {
   console.log("Responding to root...");
   res.send("Hello World");

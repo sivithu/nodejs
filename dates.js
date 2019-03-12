@@ -40,9 +40,7 @@ var port = process.env.PORT || 3000;
 
 
 app.post('/chat', async (req, res) => {
-
   try {
-
     // Connection URL
     const url = 'mongodb://localhost:27017/chat-bot';
     // Database Name
@@ -50,18 +48,19 @@ app.post('/chat', async (req, res) => {
     const client = new MongoClient(url);
     var msg = req.body.msg;
     await client.connect();
-
     const db = client.db(dbName);
-
     const col = db.collection('messages');
 
     if(msg.split(" = ")[0] == "demain"){
       col.insertMany([{from: 'user', msg: msg}, {from: 'bot', msg: "demain = Mercredi"}]);
       //col.insertMany();
       console.log("Demain : Mercredi");
+      res.send("Demain : Mercredi");
+    } else {
+      console.log("Je ne comprends pas...");
+      res.send("Je ne comprends pas...");
     }
 
-    console.log(await col.find().toArray());
 
     client.close();
 
@@ -73,7 +72,6 @@ app.post('/chat', async (req, res) => {
 
 app.get('/messages/all', async (req, res) => {
   try {
-
     // Connection URL
     const url = 'mongodb://localhost:27017/chat-bot';
     // Database Name
@@ -84,7 +82,7 @@ app.get('/messages/all', async (req, res) => {
     const db = client.db(dbName);
     const col = db.collection('messages');
     console.log(await col.find().toArray());
-    res.send("Voici le tableau");
+    res.send("Tableau envoyé");
     client.close();
 
   } catch (err) {

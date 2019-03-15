@@ -58,7 +58,7 @@ app.post("/chat", (req,res) => {
 app.post('/chat', async (req, res) => {
   try {
     // Connection URL
-    const url = "mongodb+srv://sivithu:cacamou93@nodeapicluster-abdkp.mongodb.net/test?retryWrites=true";
+    const url = process.env.MONGODB_URI || 'mongodb://localhost:27017/chat-bot';
     // Database Name
     const dbName = 'chat-bot';
     const client = new MongoClient(url);
@@ -89,7 +89,7 @@ app.post('/chat', async (req, res) => {
 app.get('/messages/all', async (req, res) => {
   try {
     // Connection URL
-    const url = "mongodb+srv://sivithu:cacamou93@nodeapicluster-abdkp.mongodb.net/test?retryWrites=true";
+    const url = process.env.MONGODB_URI || 'mongodb://localhost:27017/chat-bot';
     // Database Name
     const dbName = 'chat-bot';
     const client = new MongoClient(url);
@@ -110,7 +110,7 @@ app.get('/messages/all', async (req, res) => {
 app.delete('/messages/last', async (req, res) => {
   try {
     // Connection URL
-    const url = "mongodb+srv://sivithu:cacamou93@nodeapicluster-abdkp.mongodb.net/test?retryWrites=true";
+    const url = process.env.MONGODB_URI || 'mongodb://localhost:27017/chat-bot';
     // Database Name
     const dbName = 'chat-bot';
     const client = new MongoClient(url);

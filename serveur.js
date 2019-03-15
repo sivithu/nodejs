@@ -104,6 +104,7 @@ app.get('/messages/all', async (req, res) => {
   } catch (err) {
     //this will eventually be handled by your error handling middleware
     console.log(err.stack);
+    res.send("Error");
   }
 });
 
